@@ -1,0 +1,68 @@
+﻿@model Api.Models.NsResponse
+@{
+    ViewBag.Title = "NS Lookup";
+}
+
+<div>
+    <form>
+        <div class="form-group">
+            <label for="host">Host</label>
+            <input type="text" class="form-control" id="host" name="host" aria-describedby="hostHelp" value="@Model.Host" placeholder="google.com">
+            <small id="hostHelp" class="form-text text-muted">Please, enter host without http:// or https://.</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Check domain</button>
+    </form>
+</div>
+@if (!string.IsNullOrWhiteSpace(Model.Host))
+{
+    <div>
+        <table class="table table-dark">
+            <tbody>
+                <tr>
+                    <th scope="row">Host</th>
+                    <td><pre>@Model.Host</pre></td>
+                </tr>
+                <tr>
+                    <th scope="row">A</th>
+                    <td><pre>@Model.A</pre></td>
+                </tr>
+                <tr>
+                    <th scope="row">AAAA</th>
+                    <td><pre>@Model.AAAA</pre></td>
+                </tr>
+                <tr>
+                    <th scope="row">NS</th>
+                    <td><pre>@Model.NS</pre></td>
+                </tr>
+                <tr>
+                    <th scope="row">MX</th>
+                    <td><pre>@Model.MX</pre></td>
+                </tr>
+                <tr>
+                    <th scope="row">Srv</th>
+                    <td><pre>@Model.SRV</pre></td>
+                </tr>
+                <tr>
+                    <th scope="row">Soa</th>
+                    <td><pre>@Model.SOA</pre></td>
+                </tr>
+                <tr>
+                    <th scope="row">Ptr</th>
+                    <td><pre>@Model.PTR</pre></td>
+                </tr>
+                <tr>
+                    <th scope="row">Title</th>
+                    <td><pre>@Model.Title</pre></td>
+                </tr>
+                <tr>
+                    <th scope="row">Description</th>
+                    <td><pre>@Model.Description</pre></td>
+                </tr>
+                <tr>
+                    <th scope="row">Keywords</th>
+                    <td><pre>@Model.Keywords</pre></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
